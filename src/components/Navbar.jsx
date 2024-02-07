@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import NavLink from './navlink';
 
 const links = [
   { url: '/', title: 'Home' },
@@ -13,17 +14,15 @@ const links = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <div className='h-full flex items-center justify-between px-4 sm:px-8 lg:px-20 xl:px-48'>
+    <div className='h-full flex items-center justify-between px-4 sm:px-8 lg:px-20 xl:px-48 text-xl'>
       {/* links */}
       <div className='hidden md:flex gap-4 w-1/3'>
         {links.map((link) => (
-          <Link key={link.url} href={link.url} className=''>
-            {link.title}
-          </Link>
+          <NavLink link={link} key={link.title} />
         ))}
       </div>
       {/* logo */}
-      <div className='md:hidden lg:flex  gap-4 w-1/3'>
+      <div className='md:hidden lg:flex  gap-4 w-1/3 xl:justify-center'>
         <Link
           href='/'
           className='text-sm bg-black rounded-md p-1 font-semibold flex items-center justify-center'>
