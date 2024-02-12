@@ -2,18 +2,20 @@
 
 import { motion } from 'framer-motion';
 
-const Test = () => {
+const TestPage = () => {
   const variants = {
-      variants1: {
-          x: 400,
-          y: 300,
-          opacity: 1,
+    variant1: {
+      x: 400,
+      y: 300,
+      opacity: 0.5,
+      transition: {
+        duration: 3,
       },
-      variants2: {
-        x: 100,
-        y: -300,
-        rotation: 1,
-      },
+    },
+    variant2: {
+      x: 100,
+      y: -300,
+      rotation: 90,
     },
   };
 
@@ -21,14 +23,10 @@ const Test = () => {
     <div className='h-full flex items-center justify-center'>
       <motion.div
         className='w-96 h-96 bg-red-400 rounded'
-        initiial={{ x: -100 }}
-        variants={{ variants }}
-              animate={{
-                  condition ? "variants2" : "variants1"}}
-        transition={{ delay: 2, duration: 4 }}></motion.div>
-      Test
+        variants={variants}
+        animate='variant1'></motion.div>
     </div>
   );
 };
 
-export default Test;
+export default TestPage;
