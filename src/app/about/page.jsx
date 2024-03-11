@@ -8,7 +8,22 @@ const AboutPage = () => {
       initial={{ y: '-200vh' }}
       animate={{ y: '0vh%' }}
       transition={{ duration: 1 }}>
-      About
+      {/* contAiner */}
+      <div>
+        {/* TEXT CONT`INER */}
+        <div className='p-4 sm:p- 12 lg:p-20 xl:p-48'>
+          {/* BIO */}
+          <div className='hidden'></div>
+          {/* SKILLS */}
+          <div className='hidden'></div>
+          {/* EXPIRENCE */}
+          <div className='hidden'></div>
+        </div>
+        {/* svg container  */}
+        <div className='hidden'></div>
+        <div></div>
+        fdhvbz
+      </div>
     </motion.div>
   );
 };
