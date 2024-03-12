@@ -6,7 +6,7 @@ const ContactPage = () => {
     <motion.div
       className='h-full'
       initial={{ y: '-200vh' }}
-      animate={{ y: '0vh%' }}
+      animate={{ y: '0%' }}
       transition={{ duration: 1 }}>
       Contant
     </motion.div>
