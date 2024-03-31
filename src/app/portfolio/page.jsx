@@ -1,6 +1,7 @@
 'use client';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image'
 import { useRef, useState } from 'react';
 
 
@@ -43,7 +44,7 @@ const PortfolioPage = () => {
   const ref = useRef();
   const { scrollYProgress } = useScroll(ref);
 
-  const x = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+  const x = useTransform(scrollYProgress, [0, 1], ['0%', '-80%']);
 
   return (
     <motion.div
@@ -55,21 +56,37 @@ const PortfolioPage = () => {
         <div className='w-screen h-[calc(100vh-6rem)] flex items-center justify-center  text-8xl text-center'>
           My Works
         </div>
-        <div className='sticky top-0 flex h-screen gap-4 items-center'>
+        <div className='sticky top-0 flex h-screen gap-4 items-center overflow-hidden'>
+          <motion.div style={{x}} className="flex">
+            <div className='h-screen w-screen flex items-center justify-center bg-gradient-to-r from-purple-300 to-red-200'/>
           {items.map((item ) =>(
         <div className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${item.color}` }key={item.id}>
             <div className="flex flex-col gap-8 text-white">
               <h1 className=''>{item.title}</h1>
               <div className='relative'>
-                <Image src={item.image} alt='' fill />
+                <Image src={item.img} alt='' fill />
               </div>
-              <p className='text-center'>{item.description}</p>
+              <p className='text-center'>{item.desc}</p>
               <Link href={item.link}>
                 <button>See Demo</button>
               </Link>
             </div>
           </div>
           ))}
+        </motion.div>
+        <div className="w-screen flex flex-col gap-16 items-center justify-center text-center">
+          <h1 className='text-4xl'>Do you have project</h1>
+          <div className='relative'>
+            <svg>
+            <defs>
+              <path
+                id="circlePath"
+                d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "
+              />
+            </defs>
+            </svg>
+          </div>
+        </div>
         </div>
       </div>
     </motion.div>
